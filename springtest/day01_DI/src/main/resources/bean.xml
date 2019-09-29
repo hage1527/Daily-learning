@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--
+     依赖注入：
+            能注入的数据：有三类
+                基本类型和String
+                其他bean类型（在配置文件中或者注解配置过的bean）
+                复杂类型/集合类型
+             注入的方式：有三种
+                第一种：使用构造函数提供
+                第二种：使用set方法提供
+                第三种：使用注解提供（明天的内容）
+     -->
+    <!--     1.使用构造函数注入-->
+    <bean id="accountService" class="com.hage.AccountServiceImpl">
+        <constructor-arg name="name" value="hage"></constructor-arg>
+        <constructor-arg name="age" value="19"></constructor-arg>
+        <constructor-arg name="birthday" ref="date"></constructor-arg>
+    </bean>
+    <!--    配置一个日期对象-->
+    <bean id="date" class="java.util.Date"></bean>
+
+    <!--    2.set方法注入-->
+    <bean id="accountService2" class="com.hage.spring.service.impl.AccountServiceImpl2">
+        <property name="age" value="20"></property>
+        <property name="name" value="sunbowen"></property>
+        <property name="birthday" ref="date"></property>
+    </bean>
+
+    <!-- 3.复杂类型的注入/集合类型的注入
+        用于给List结构集合注入的标签：
+            list array set
+        用于个Map结构集合注入的标签:
+            map  props
+        结构相同，标签可以互换
+    -->
+    <bean id="accountService3" class="com.hage.spring.service.impl.AccountServiceImpl3">
+        <property name="mystr">
+            <set>
+                <value>string</value>
+                <value>string</value>
+                <value>string</value>
+            </set>
+        </property>
+        <property name="mylist">
+            <list>
+                <value>list</value>
+                <value>list2</value>
+                <value>list3</value>
+            </list>
+        </property>
+        <property name="mymap">
+            <map>
+                <entry key="1" value="a"></entry>
+                <entry key="2" value="b"></entry>
+                <entry key="3" value="c"></entry>
+            </map>
+        </property>
+        <property name="myset">
+            <set>
+                <value>set</value>
+                <value>set1</value>
+                <value>set2</value>
+            </set>
+        </property>
+        <property name="myprop">
+            <props>
+                <prop key="1">a</prop>
+                <prop key="2">b</prop>
+                <prop key="3">c</prop>
+            </props>
+        </property>
+    </bean>
+
+   </beans>

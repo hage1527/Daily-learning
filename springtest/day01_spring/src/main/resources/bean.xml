@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--    创建bean的三种方式 -->
+    <!--    1.利用构造函数创建-->
+    <bean id="accountService" class="com.hage.AccountServiceImpl" scope="singleton"
+    init-method="init" destroy-method="destroy"></bean>
+
+    <!--    2.利用普通工厂中的方法创建对象-->
+<!--    <bean id="instanceFactory" class="com.hage.spring.factory.InstanceFactory"></bean>-->
+<!--    <bean id="accountService" factory-bean="instanceFactory" factory-method="getService"></bean>-->
+
+    <!--    3.利用普通工厂的静态方法创建对象-->
+<!--    <bean id="accountService" class="com.hage.spring.factory.StaticFactory" factory-method="getService" scope="prototype"></bean>-->
+   </beans>

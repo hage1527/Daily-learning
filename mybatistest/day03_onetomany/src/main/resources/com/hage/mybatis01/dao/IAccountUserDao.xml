@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hage.mybatis01.dao.IAccountUserDao">
+    <resultMap id="accountUserMap" type="account">
+        <id column="id" property="id"></id>
+        <result column="uid" property="uid"></result>
+        <result column="money" property="money"></result>
+        <association property="user" javaType="user">
+            <id property="id" column="id"></id>
+            <result property="username" column="username"></result>
+            <result property="birthday" column="birthday"></result>
+            <result property="address" column="address"></result>
+            <result property="sex" column="sex"></result>
+        </association>
+    </resultMap>
+    <select id="findAll" resultMap="accountUserMap">
+       select u.*,a.* from account a left join user u on a.UID=u.id
+    </select>
+</mapper>

@@ -1,0 +1,7 @@
+
+ <mapper namespace="com.hage.mybatis01.dao.IUserDao">
+    <select id="findAll" resultType="com.hage.mybatis01.entity.User">
+         select * from user
+    </select>
+
+</mapper>
