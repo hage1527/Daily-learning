@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--  指定要扫描的包  -->
+    <context:component-scan base-package="com.hage"></context:component-scan>
+    <!--  视图解析器对象  -->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--  前端控制器，哪些静态资源不拦截  -->
+    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
+    <mvc:resources mapping="/images/**" location="/images/"></mvc:resources>
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+
+    <!--  自定义拦截器 -->
+    <mvc:interceptors>
+        <!--拦截器链-->
+        <!--拦截器1-->
+        <mvc:interceptor>
+            <!--    要拦截的具体方法    -->
+            <mvc:mapping path="/user/*"/>
+            <!--    不要拦截的方法    -->
+            <!--<mvc:exclude-mapping path=""/>-->
+            <bean class="com.hage.interceptor.MyInterceptor1"></bean>
+        </mvc:interceptor>
+        <!--拦截器2-->
+        <mvc:interceptor>
+        <!--    要拦截的具体方法    -->
+        <mvc:mapping path="/user/*"/>
+        <!--    不要拦截的方法    -->
+        <!--<mvc:exclude-mapping path=""/>-->
+        <bean class="com.hage.interceptor.MyInterceptor2"></bean>
+    </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--  开启springMVC框架注解的支持  -->
+    <mvc:annotation-driven/>
+
+
+</beans>

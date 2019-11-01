@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.hage.mybatis01.dao.IUserDao">
-
+<mapper namespace="com.hage.mybatis01.dao.IUserDao">
+    <!--  一对多    -->
     <resultMap id="userMap" type="user">
         <id column="id" property="id"></id>
         <result column="username" property="username"></result>

@@ -13,6 +13,10 @@
         <module>day02_1_response</module>
         <module>day02_2_fileupload</module>
         <module>fileuploadserver</module>
+        <module>day02_3_execption</module>
+        <module>day04_4_Interceptor</module>
+        <module>ssm</module>
+
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

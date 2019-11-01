@@ -1,0 +1,31 @@
+server:
+  port: 8080
+person:
+  lastName: 2545772885@qq.com
+  age: 20
+  boss: false
+  birth: 2019/9/20
+  maps: {hage: 123,sunbown: nihao}
+  lists:
+    - list1
+    - list2
+    - list3
+  dog:
+    age: 19
+    name: hah
+spring:
+  profiles:
+    active: dev
+---
+
+server:
+  port: 8081
+
+spring:
+  profiles: dev
+
+---
+server:
+  port: 8082
+spring:
+  profiles: prod
