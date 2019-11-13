@@ -81,6 +81,5 @@ public class Bean implements Writable {
         amount=in.readInt();
         pname=in.readUTF();
         flag=in.readUTF();
-
     }
 }
