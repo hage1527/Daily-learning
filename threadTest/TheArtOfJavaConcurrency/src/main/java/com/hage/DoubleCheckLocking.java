@@ -1,4 +1,4 @@
-package com.hage.Annotation;
+package com.hage;
 
 /**
  * @author: Administrator

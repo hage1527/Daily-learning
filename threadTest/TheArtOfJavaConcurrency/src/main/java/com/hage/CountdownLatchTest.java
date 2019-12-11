@@ -1,4 +1,4 @@
-package com.hage.ConcurrencyProgramming;
+package com.hage;
 
 
 import java.util.concurrent.CountDownLatch;
