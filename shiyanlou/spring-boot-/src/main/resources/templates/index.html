@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>课程内容：<span th:text="${course}">课程名称</span></p>
+<table border="1">
+    <tr>
+        <td>用户id</td>
+        <td>用户名</td>
+        <td>年龄</td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}">id</td>
+        <td th:text="${user.name}">姓名</td>
+        <td th:text="${user.age}">年龄</td>
+    </tr>
+</table>
+</body>
+</html>
