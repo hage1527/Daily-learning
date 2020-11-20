@@ -1,0 +1,1 @@
+REPLACE INTO `user` (`id`, `name`, `age`) VALUES ('100', 'test01', '100');

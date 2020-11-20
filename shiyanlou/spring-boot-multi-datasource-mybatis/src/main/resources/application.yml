@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    shiyanlou01:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://47.105.69.171:3306/shiyanlou01?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: hage1234
+    shiyanlou02:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://47.105.69.171:3306/shiyanlou02?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: hage1234
+
+#spring:
+#  datasource:
+#    shiyanlou01:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: jdbc:mysql://localhost:3306/shiyanlou01?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+#      username: root
+#      password:
+#    shiyanlou02:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: jdbc:mysql://localhost:3306/shiyanlou02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+#      username: root
+#      password:

@@ -1,19 +1,11 @@
 package com.example.mapper;
 
 import com.example.entity.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * @author: Administrator
- * @date: 2020/10/31
- * Description:
- */
-@Repository
+@Component
 public interface UserMapper {
 
     List<User> findAll();
@@ -22,7 +14,7 @@ public interface UserMapper {
 
     Integer insert(User user);
 
-    Integer update(@Param("id") Integer id, @Param("name") String name);
+    Integer update(Integer id, String name);
 
     Integer delete(Integer id);
 
