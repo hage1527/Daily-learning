@@ -19,8 +19,9 @@ public class DataSourceConfig {
      * @return
      */
     @Bean("dataSource01")
-    //设置该数据源为默认数据源
+    // 设置该数据源为默认数据源
     @Primary
+    // 以spring.datasource.shiyanlou01为前缀的属性值自动绑定到对应的字段中
     @ConfigurationProperties(prefix = "spring.datasource.shiyanlou01")
     public DataSource getDataSource01() {
         return DataSourceBuilder.create().build();

@@ -13,23 +13,23 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 /**
- * 根据数据源dataSource01配置sqlSessionFactory01和sqlSession01
+ * 根据数据源dataSource01创建sqlSessionFactory01和sqlSession01
  */
 @Configuration
-@MapperScan(basePackages = "com.example.mapper.shiyanlou01", sqlSessionFactoryRef = "sqlSessionFactory01")
+
+@MapperScan(basePackages = "com.example.mapper.shiyanlou01",sqlSessionFactoryRef = "sqlSessionFactory01")
 public class SqlSessionConfig01 {
 
     /**
      * 向容器中实例化sqlSessionFactory01实例
-     * @param dataSource
-     * @return SqlSessionFactory
      */
     @Bean("sqlSessionFactory01")
     @Primary
     public SqlSessionFactory getSqlSessionFactory(
+            //根据名称从容器中获取实例
             @Qualifier("dataSource01") DataSource dataSource) {
         try {
-            // 实例化一个工具类，用来创建 SqlSessionFactory
+            // 实例化一个工具类，用来创建SqlSessionFactory
             SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
             factoryBean.setMapperLocations(
@@ -47,11 +47,10 @@ public class SqlSessionConfig01 {
     }
 
     /**
-     * 向容器中实例化
-     * @param sqlSessionFactory
-     * @return SqlSessionTemplate
+     * 向容器中实例化sqlSession01实例
      */
     @Bean("sqlSession01")
+    @Primary
     public SqlSessionTemplate getSqlSession
             (@Qualifier("sqlSessionFactory01") SqlSessionFactory sqlSessionFactory) {
         // 利用SqlSessionFactory实例构建一个由SpringBoot管理的线程安全的SqlSession

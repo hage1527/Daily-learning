@@ -15,9 +15,12 @@ import javax.sql.DataSource;
  * 根据数据源dataSource02配置sqlSessionFactory02和sqlSession02
  */
 @Configuration
-@MapperScan(basePackages = "com.example.mapper.shiyanlou02", sqlSessionFactoryRef = "sqlSessionFactory02")
+@MapperScan(basePackages = "com.example.mapper.shiyanlou02",sqlSessionFactoryRef = "sqlSessionFactory02")
 public class SqlSessionConfig02 {
 
+    /**
+     * 向容器中实例化sqlSessionFactory02实例
+     */
     @Bean("sqlSessionFactory02")
     public SqlSessionFactory getSqlSessionFactory(
             @Qualifier("dataSource02") DataSource dataSource) {
@@ -39,12 +42,14 @@ public class SqlSessionConfig02 {
         return null;
     }
 
+    /**
+     * 向容器中实例化sqlSession02实例
+     */
     @Bean("sqlSession02")
     public SqlSessionTemplate getSqlSession
             (@Qualifier("sqlSessionFactory02") SqlSessionFactory sqlSessionFactory) {
         //利用SqlSessionFactory实例构建一个由SpringBoot管理的线程安全的SqlSession
         return new SqlSessionTemplate(sqlSessionFactory);
     }
-
 
 }
