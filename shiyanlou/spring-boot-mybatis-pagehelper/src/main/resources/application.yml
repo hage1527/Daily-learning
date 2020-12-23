@@ -1,0 +1,20 @@
+logging:
+  level:
+    com.example: TRACE
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.105.69.171:3306/shiyanlou?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: hage1234
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.example.entity
+mapper:
+  not-empty: false
+  identity: MYSQL
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
