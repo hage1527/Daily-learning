@@ -6,11 +6,6 @@ import tk.mybatis.mapper.annotation.KeySql;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author: Administrator
- * @date: 2020/12/18
- * Description:
- */
 @Table(name = "tb_user")
 @Data
 public class User {
